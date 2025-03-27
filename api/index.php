@@ -143,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !$error_message) {
     echo "<p><strong>b. Khmer:</strong> " . $khmer_words . "រៀល</p>";
     echo "<p><strong>c. US Dollars:</strong> $" . $usd_amount . "</p>";
     if ($file_contents) {
-        echo "<h3>File Contents (/tmp/Projects.txt):</h3>";
+        echo "<h3>File Contents (Projects.txt):</h3>";
         echo "<pre>" . htmlspecialchars($file_contents) . "</pre>";
     }
 }
