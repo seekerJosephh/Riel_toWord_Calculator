@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Phnom_Penh');
 header('Content-Type: text/html; charset=UTF-8');
 
 $english_words = $khmer_words = $usd_amount = $error_message = $file_contents = '';
