@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Riel to Words Calculator</title>
 </head>
@@ -14,6 +15,10 @@
 </form>
 
 <?php
+header('Content-Type: text/html; charset=UTF-8');
+$english_words = $khmer_words = $usd_amount = $error_message = '';
+$riel_amount = 0;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $riel_amount_input = $_POST["riel_amount"];
          // a. Input Validation
@@ -25,14 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           }
 
         // b. Store data in Text File
-        $file = 'Projects.txt';
-        if (is_writable($file) || (!file_exists($file) && is_writable(dirname($file)))) {
-            $current = file_exists($file) ? file_get_contents($file) : '';
-            $current .= $riel_amount . "\n";
-            file_put_contents($file, $current);
-        } else {
-            echo "<p style='color:red;'>Error: Cannot write to file.</p>";
-        }
+        // $file = 'Projects.txt';
+        // if (is_writable($file) || (!file_exists($file) && is_writable(dirname($file)))) {
+        //     $current = file_exists($file) ? file_get_contents($file) : '';
+        //     $current .= $riel_amount . "\n";
+        //     file_put_contents($file, $current);
+        // } else {
+        //     echo "<p style='color:red;'>Error: Cannot write to file.</p>";
+        // }
 
         function numberToEnglishWords($number) {
           $ones = array(
@@ -128,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $english_words = numberToEnglishWords($riel_amount);
         echo "<h3>Entered Data: " . number_format($riel_amount) . " Riel</h3>";
         echo "<p><strong>a. English:</strong> " . $english_words . " Riel</p>";
-        echo "<p><strong>b. Khmer:</strong> " . $khmer_words . " រៀល</p>";
+        echo "<p><strong>b. Khmer:</strong> " . $khmer_words . " រៀល </p>";
         echo "<p><strong>c. US Dollars:</strong> $" . $usd_amount . "</p>";
     }
 
